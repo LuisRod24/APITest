@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "00a41fa0-2a1a-4573-b176-9fc08211a818",
+		"name": "To-Do List",
+		"description": "Making requests on the To-Do list\r\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Making requests",
+			"item": [
+				{
+					"name": "Registering a new user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"name\": \"Random Guy\",\r\n\t\"email\": \"Randomguy@gmail.com\",\r\n\t\"password\": \"12345678\",\r\n\t\"age\": 21\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/register",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"register"
+							]
+						},
+						"description": "Registering a new user"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"email\": \"RandomGuy@gmail.com\",\r\n\t\"password\": \"12345678\"\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/login",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"login"
+							]
+						},
+						"description": "Logging in "
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{UserToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}/logout",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"logout"
+							]
+						},
+						"description": "Logging in "
+					},
+					"response": []
+				}
+			],
+			"description": "Making all types of requests\r\n",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Making task related requests",
+			"item": [
+				{
+					"name": "Adding new task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{UserToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"description\": \"Playing Soccer\"\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseTaskURL}}",
+							"host": [
+								"{{BaseTaskURL}}"
+							]
+						},
+						"description": "Making new request for user tasks"
+					},
+					"response": []
+				},
+				{
+					"name": "Registering user for task",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}?=Muhammad Nur Ali",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "Muhammad Nur Ali"
+								}
+							]
+						},
+						"description": "Registering user for task"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
